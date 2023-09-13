@@ -24,12 +24,12 @@ router.get('/:id', async (request, response) =>{
         if(!id){
             return response.status(400).json({ message: 'Invalid ID' });
         }
-        console.log("Received id: " + id); 
+        // console.log("Received id: " + id); 
 
         const book = await Book.findById(id);
         return response.status(200).json(book);
     }catch(error){
-        console.log(error.message + '\nError in file booksRoute.js @line 32');
+        console.log(error.message);
         response.status(500).send( {message:error.message} );
     }
 });

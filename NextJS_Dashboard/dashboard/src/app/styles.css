@@ -1,0 +1,88 @@
+.underlined-link {
+  font-size: 0.5px;
+  text-decoration: underline;
+}
+
+/* Your CSS file or inline styles */
+.custom-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #805ad5; /* Purple background color */
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+}
+
+.flag-icon {
+  display: inline-block;
+  margin-right: 4px; /* Adjust the spacing between icon and text */
+}
+
+
+.navbar{
+  /* position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%; */
+  
+  /* Dark02 */
+  background: #15132B;
+}
+
+.search-bar{
+  /* 
+  position: absolute;
+  left: 20.57%;
+  right: 53.85%;
+  top: 21.67%; */
+  /* bottom: 21.67%; */
+
+  background: #211A75;
+  border-radius: 46px;
+}
+
+/* styles/Sidebar.css */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Adjust to the desired width of the sidebar */
+  width: 300px; /* Adjust to the desired width of the sidebar */
+  height: 100%;
+  background-color: #333; /* Customize the background color */
+  transition: left 0.3s;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.sidebar-content {
+  flex-grow: 1;
+  padding: 1rem;
+  color: white;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+}
+
+button:focus {
+  outline: none;
+}

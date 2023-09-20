@@ -1,0 +1,66 @@
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(30, 32, 41);
+  height: 100%;
+}
+
+.nav-header{
+  display: flex;
+  color: white;
+  justify-content: center;
+}
+
+.nav-header select{
+  display: none;
+}
+
+.selOpt{
+  background-color: rgb(69, 69, 77);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-top: 1px solid transparent;
+  margin: 10px 8px;
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+.table-div{
+  display: flex;
+  /* align-self: flex-end; */
+}
+
+.t-body{
+  margin: auto;
+  width: 95%;
+  font-size: 20px;
+  font-weight: bold;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  font-family: sans-serif;
+  background: transparent;
+}
+
+.t-head{
+  color: grey;
+}
+
+.row{
+  margin-top: 1cm;
+  border-top: 1cm;
+  border-spacing: 2cm;
+  border-radius: 30%;
+  background-color: rgb(69, 69, 77);
+  color: white;
+}
+
+.row td{
+  padding: 5px;
+  height: 1cm;
+  text-align: center;
+  vertical-align: middle;
+  border-top: 1px solid transparent;
+}

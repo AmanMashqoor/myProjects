@@ -37,29 +37,43 @@ jsonData.forEach((rowData, index) => {
 cryptoTableDiv.appendChild(table);
 
  */
+const tableBody = document.getElementById('table-body');
 
-fetch('/api/tickers') // Request to your Express server
+function cryptoApi(){
+  fetch('/api/tickers') // Request to your Express server
   .then((response) => response.json())
   .then((data) => {
     const objectWithTenTickers = data;
 
-    const tableBody = document.getElementById('table-body');
+    tableBody.innerHTML = '';
 
     objectWithTenTickers.forEach((entry, index) => {
       const row = document.createElement('tr');
+      row.classList.add('row');
+      const tickerData = entry[1];
+      
       row.innerHTML = `
           <td>${index + 1}</td>
-          <td>${entry.last}</td>
-          <td>${entry.value}</td>
+          <td>${tickerData.name}</td>
+          <td>₹ ${tickerData.last}</td>
+          <td>₹ ${tickerData.buy}</td>
+          <td>₹ ${tickerData.sell}</td>
+          <td>${tickerData.volume}</td>
+          <td>${tickerData['base_unit']}</td>
       `;
       tableBody.appendChild(row);
     });
 
   
-    console.log(objectWithTenTickers);
+    console.log(objectWithTenTickers[0]);
     console.log("Last = " + objectWithTenTickers[0][1].last);
     console.log("Buy = " + objectWithTenTickers[0][1].buy);
   })
   .catch((error) => {
     console.error('Error:', error);
   });
+}
+
+cryptoApi();
+
+setInterval(cryptoApi, 2000);

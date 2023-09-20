@@ -3,20 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="style.css" rel="stylesheet">
   <title>Crypto Data Table</title>
 </head>
 <body>
-  <div id="cryptoTable">
+  <div class="nav-header">
+    <select class="selOpt">
+      <option value="inr" selected>INR</option>
+      <option value="usd">USD</option>
+    </select>
+    <select>
+      <option value="btc" selected>BTC</option>
+      <option value="eth">ETH</option>
+    </select>
+  </div>
+  <div></div>
+  <div id="cryptoTable" class="table-div">
     <title>Object Table</title>
-    <table>
-        <thead>
+    <table class="t-body">
+        <thead class="t-head">
             <tr>
-                <th>Name</th>
-                <th>Last</th>
-                <th>Buy</th>
-                <th>Sell</th>
-                <th>Volume</th>
-                <th>Base_Unit</th>
+                <th class="border">#</th>
+                <th class="border">Name</th>
+                <th class="border">Last</th>
+                <th class="border">Buy</th>
+                <th class="border">Sell</th>
+                <th class="border">Volume</th>
+                <th class="border">Base_Unit</th>
             </tr>
         </thead>
         <tbody id="table-body">

@@ -1,0 +1,72 @@
+{
+  "_id": { "$oid": "650ad4a13655b031c10c2d86" },
+  "address": {
+    "building": "7114",
+    "coord": [
+      { "$numberDouble": "-73.9068506" },
+      { "$numberDouble": "40.6199034" }
+    ],
+    "street": "Avenue U",
+    "zipcode": "11234"
+  },
+  "borough": "Brooklyn",
+  "cuisine": "Delicatessen",
+  "grades": [
+    {
+      "date": {
+        "$date": {
+          "$numberLong": "1401321600000"
+        }
+      },
+      "grade": "A",
+      "score": { "$numberInt": "10" }
+    },
+    {
+      "date": {
+        "$date": {
+          "$numberLong": "1389657600000"
+        }
+      },
+      "grade": "A",
+      "score": { "$numberInt": "10" }
+    },
+    {
+      "date": {
+        "$date": {
+          "$numberLong": "1375488000000"
+        }
+      },
+      "grade": "A",
+      "score": { "$numberInt": "8" }
+    },
+    {
+      "date": {
+        "$date": {
+          "$numberLong": "1342569600000"
+        }
+      },
+      "grade": "A",
+      "score": { "$numberInt": "10" }
+    },
+    {
+      "date": {
+        "$date": {
+          "$numberLong": "1331251200000"
+        }
+      },
+      "grade": "A",
+      "score": { "$numberInt": "13" }
+    },
+    {
+      "date": {
+        "$date": {
+          "$numberLong": "1318550400000"
+        }
+      },
+      "grade": "A",
+      "score": { "$numberInt": "9" }
+    }
+  ],
+  "name": "Wilken'S Fine Food",
+  "restaurant_id": "40356483"
+}

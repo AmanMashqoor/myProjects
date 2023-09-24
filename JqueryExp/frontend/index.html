@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+  </head>
+  <body>
+    <div id="header" class="header-navbar">
+      <nav>
+        <button></button>
+      </nav>
+    </div>
+
+    <div>
+      <button> for 'p'</button>
+      <p>this is my body tag</p>
+    </div>
+    <br>
+    <div>
+      <label>Date: <input type="text" id="datepicker">&#xA0;<input type="text" id="alternate" size="30"></label>
+    </div>
+  </body>
+  <script src="../js/code.jquery.com_jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function(){ //load code of jQuery AFTER the document and it's resources are loaded
+      // console.log($);
+      // console.log(jQuery);
+      console.log(`We are using jQuery: ${jQuery}`);
+      
+      $('button').click(function(){ //run function after clicking on tag 'button'
+        console.log("You clicked on p.");
+
+        // $(this).toggle("slow"); //hide tag 'button; after clicking on it
+        $('p').toggle('slow'); //hide tag 'p' after clicking on it
+        console.log("'p' is hidden.");
+      });
+
+      // if($('p').hide == true){
+        //   $('p').show();
+        // }
+      });
+
+      $( function() {
+    $('#datepicker').datepicker({
+      altField: "#alternate",
+      altFormat: "DD, d MM, yy"
+    });
+  } );
+      
+  </script>
+</html>

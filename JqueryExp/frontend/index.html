@@ -5,52 +5,145 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>HTML 5 Boilerplate</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="./css/style.css">
   </head>
-  <body>
-    <div id="header" class="header-navbar">
-      <nav>
-        <button></button>
-      </nav>
-    </div>
 
-    <div>
-      <button> for 'p'</button>
-      <p>this is my body tag</p>
-    </div>
-    <br>
-    <div>
-      <label>Date: <input type="text" id="datepicker">&#xA0;<input type="text" id="alternate" size="30"></label>
+
+  <body>
+    <div id="wrapper" class="w-full">
+      <div id="header" class="header-navbar">
+        <div class="naber-container">
+          <nav class="navbar">
+            <div id="brand-logo">
+
+            </div>
+            <div class="nav-menus">
+              <ul class="nav-menus-ul">
+                <li class="nav-item-1">
+                  <a href="./about.html">Feed
+                    <!-- <i class="is_icon_header ic-24-filled-down-arrow"></i> -->
+                  </a>
+                </li>
+                <li class="nav-item-2">
+                  <a href="./contact.html">Contact</a>
+                </li>
+                <li class="nav-item-3">
+                  <a href="./hire.html">Hire</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+  
+      <div>
+        <!-- <button class="button-p"> for 'p'</button>
+        <p>this is my body tag</p> -->
+        
+        <br>
+  
+        <!-- <div id="fetch-api-response">
+            <label>
+              DIV for API response:<br>
+            <label>Name:</label><input type="text" id="nameInput" placeholder="Name" disabled><br>
+            <label>Age:</label><input type="text" id="ageInput" placeholder="Age" disabled><br>
+            <label>Occupation:</label><input type="text" id="occupationInput" placeholder="Occupation" disabled><br>
+            <label>Marital Status:</label><input type="text" id="maritalstatusInput" placeholder="Marital status" disabled><br>
+            <label>Alive:</label><input type="text" id="statusInput" placeholder="Alive?" disabled><br>
+          </label>
+        </div> -->
+        
+        <!-- ///////////// Input form for sponsors ///////// -->
+        <div id="sponsor-input-form">
+          <form action="">
+            <label>Organisation Name:</label><input type="text" class="organisation-name" placeholder="Org Name"><br>
+            <label>Product or Service:</label><select type="text" class="type">
+              <option value="product" selected>Product</option>
+              <option value="service">Service</option>
+            </select><br>
+            <label>Industry:</label><select type="text" class="industry">
+              <option value="technology" selected>Technology</option>
+              <option value="cosmetics">Cosmetics</option>
+              <option value="automobile">Automobile</option>
+              <option value="electricals">Electricals</option>
+              <option value="software">Software</option>
+            </select><br>
+            <label>Budget:</label><input type="text" class="budget" placeholder="Budget"><br>
+            <input type="submit" value="submit">
+          </form>
+          </div>
+
+      </div>
+      <br>
+  
+      
+      <!-- <div>
+        <label>
+          DIV for DATE:<br>
+          <label>Date: <input type="text" id="datepicker">&#xA0;<input type="text" id="alternate" size="30"></label>
+        </label>
+      </div> -->
     </div>
   </body>
-  <script src="../js/code.jquery.com_jquery-3.7.1.min.js"></script>
+
+
+  <script src="../frontend/js/code.jquery.com_jquery-3.7.1.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
   <script>
-    $(document).ready(function(){ //load code of jQuery AFTER the document and it's resources are loaded
-      // console.log($);
-      // console.log(jQuery);
-      console.log(`We are using jQuery: ${jQuery}`);
+    $(document).ready(function(){ //load code of jQuery AFTER, the document and it's resources are loaded
+
+      // console.log(`We are using jQuery: ${jQuery}`);
       
       $('button').click(function(){ //run function after clicking on tag 'button'
         console.log("You clicked on p.");
 
+        // $('p').hide(); //hide tag 'p' after clicking on it
         // $(this).toggle("slow"); //hide tag 'button; after clicking on it
-        $('p').toggle('slow'); //hide tag 'p' after clicking on it
-        console.log("'p' is hidden.");
+        $('p').toggle('fast', function(){ //toggle 'show' & 'hide' for tag 'p' after clicking on it
+          if ($('p').is(":visible")) {
+            console.log("'p' is not hidden.");
+          } else {
+            console.log("'p' is hidden.");
+          }
+          }); 
       });
 
-      // if($('p').hide == true){
-        //   $('p').show();
-        // }
+      /* 
+      const hula = (data) => {
+            console.log('Data fetched succesfully.')
+            $('#nameInput').val(data.name);
+            $('#ageInput').val(data.age);
+            $('#occupationInput').val(data.occupation);
+            $('#maritalstatusInput').val(data.status.maritalStatus);
+            $('#statusInput').val(data.status.alive);
+          }
+
+      $.ajax({
+          url: 'http://localhost:4001',
+          type: 'GET',
+          success: hula,
+          error: function (error){
+            console.log('Error: ', error);
+          },
+        }) */
+
       });
 
       $( function() {
-    $('#datepicker').datepicker({
-      altField: "#alternate",
-      altFormat: "DD, d MM, yy"
-    });
-  } );
-      
+        $('#datepicker').datepicker({
+          altField: "#alternate",
+          altFormat: "DD, d MM, yy"
+        });
+      });
+
+      $('form').submit(()=>{
+        const formObj = {
+          orgName: $('.organisation-name').val(),
+          budget: $('.budget').val(),
+        }
+        alert("Form submitted. " + formObj.orgName + " " + formObj.budget);
+      })
   </script>
 </html>

@@ -27,8 +27,9 @@ app.get('/', (req, res)=>{
             name: "Aman",
             age: 24,
             occupation: "Student",
-            staus: {
+            status: {
                 maritalStatus: "Single",
+                alive: true,
                 graduationStatus: "Passed" 
             }
         }

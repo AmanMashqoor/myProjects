@@ -58,7 +58,7 @@
         <div id="sponsor-input-form">
           <form action="">
             <label>Organisation Name:</label><input type="text" class="organisation-name" placeholder="Org Name"><br>
-            <label>Product or Service:</label><select type="text" class="type">
+            <label>Product or Service:</label><select type="text" class="orgType">
               <option value="product" selected>Product</option>
               <option value="service">Service</option>
             </select><br>
@@ -68,9 +68,11 @@
               <option value="automobile">Automobile</option>
               <option value="electricals">Electricals</option>
               <option value="software">Software</option>
+              <option value="food">Food</option>
+              <option value="beverages">Beverages</option>
             </select><br>
             <label>Budget:</label><input type="text" class="budget" placeholder="Budget"><br>
-            <input type="submit" value="submit">
+            <input type="submit" value="submit" id="submitForm">
           </form>
           </div>
 
@@ -138,12 +140,32 @@
         });
       });
 
-      $('form').submit(()=>{
-        const formObj = {
+      // const sponsorFormObj = "";
+      $('#submitForm').click((event)=>{
+        event.preventDefault();
+
+        const sponsorFormObj = {
           orgName: $('.organisation-name').val(),
+          orgType: $('.orgType').val(),
+          industry: $('.industry').val(),
           budget: $('.budget').val(),
         }
-        alert("Form submitted. " + formObj.orgName + " " + formObj.budget);
-      })
+        alert("Form submitted. ");
+      
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:4001/",
+          contentType: "application/json",
+          data: JSON.stringify(sponsorFormObj),
+          success: (response) =>{
+            console.log("Form submitted succesfully.", response);
+          },
+          error: (error) => {
+            console.log("Error sending the data: ", error);
+          }
+        })
+      });
+      
+
   </script>
 </html>

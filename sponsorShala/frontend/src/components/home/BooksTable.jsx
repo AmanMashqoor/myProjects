@@ -54,10 +54,6 @@
 
 // export default BooksTable
 
-
-//-----------------------------------------------------------------------------------------
-
-
 import {Link} from 'react-router-dom';
 import {AiOutlineEdit} from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
@@ -74,7 +70,7 @@ const SponsorsTable = ({sponsors}) =>{
                             </th> */}
                             <th className="border border-slate-600 rounded-md">Organisation Name
                             </th>
-                            <th className="border border-slate-600 rounded-md max-md:hidden">Org. Type
+                            <th className="border border-slate-600 rounded-md max-md:hidden">Type
                             </th>
                             <th className="border border-slate-600 rounded-md max-md:hidden">Industry
                             </th>
@@ -97,13 +93,13 @@ const SponsorsTable = ({sponsors}) =>{
                                 <td className="border border-slate-700 rounded-md text-center max-md:hidden">{sponsor.budget}</td>
                                 <td className="border border-slate-700 rounded-md text-center">
                                     <div className="flex justify-center gap-x-4">
-                                        <Link to={`/sponsor/details/${sponsor._id}`}>
+                                        <Link to={`/sponsors/details/${sponsor._id}`}>
                                             <BsInfoCircle className="text-2x1 text-green-800"/>
                                         </Link>
-                                        <Link to={`/sponsor/edit/${sponsor._id}`}>
+                                        <Link to={`/sponsors/edit/${sponsor._id}`}>
                                             <AiOutlineEdit className="text-2x1 text-yellow-800"/>
                                         </Link>
-                                        <Link to={`/sponsor/delete/${sponsor._id}`}>
+                                        <Link to={`/sponsors/delete/${sponsor._id}`}>
                                             <MdOutlineDelete className="text-2x1 text-red-600"/>
                                         </Link>
                                     </div>

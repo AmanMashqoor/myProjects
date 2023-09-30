@@ -4,17 +4,16 @@ import Home from './pages/Home';
 import CreateBook from './pages/CreateBook';
 import ShowBook from './pages/ShowBook';
 import DeleteBook from './pages/DeleteBook';
-// import EditBook from './pages/EditBook';
-import EditSponsor from "./pages/EditBook";
+import EditBook from './pages/EditBook';
 
 const App = () =>{
   return(
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/sponsor/add' element={<CreateBook/>} />
-      <Route path='/sponsor/details/:id' element={<ShowBook/>} />
-      <Route path='/sponsor/edit/:id' element={<EditSponsor/>} />
-      <Route path='/sponsor/delete/:id' element={<DeleteBook/>} />
+      <Route path='/books/details/:id' element={<ShowBook/>} />
+      <Route path='/books/edit/:id' element={<EditBook/>} />
+      <Route path='/books/delete/:id' element={<DeleteBook/>} />
     </Routes>
   )
 }

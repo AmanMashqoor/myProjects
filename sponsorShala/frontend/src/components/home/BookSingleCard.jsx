@@ -7,7 +7,7 @@ import { MdOutlineDelete } from 'react-icons/md';
 import { useState } from "react";
 import BookModal from "./BookModal";
 
-const SponsorSingleCard = ({ sponsor }) => {
+const BookSingleCard = ({ sponsor }) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -31,14 +31,14 @@ const SponsorSingleCard = ({ sponsor }) => {
           className="text-3x1 text-blue-800 hover:text-black cursor-pointer"
           onClick={() => setShowModal(true)}
         />
-        <Link to={`/sponsor/details/${sponsor._id}`}>
+        <Link to={`/books/details/${sponsor._id}`}>
           <BsInfoCircle className="text-2x1 text-green-800 hover:text-black" />
         </Link>
-        <Link to={`/sponsor/edit/${sponsor._id}`}>
+        <Link to={`/books/edit/${sponsor._id}`}>
           <AiOutlineEdit className="text-2x1 text-yellow-600 hover:text-black" />
 
         </Link>
-        <Link to={`/sponsor/delete/${sponsor._id}`}>
+        <Link to={`/books/delete/${sponsor._id}`}>
           <MdOutlineDelete className="text-2x1 text-red-600 hover:text-black" />
         </Link>
       </div>
@@ -51,4 +51,4 @@ const SponsorSingleCard = ({ sponsor }) => {
   )
 }
 
-export default SponsorSingleCard
+export default BookSingleCard

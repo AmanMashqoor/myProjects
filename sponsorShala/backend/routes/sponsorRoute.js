@@ -13,15 +13,14 @@ router.get('/', async (request, response) =>{
             data: sponsors,
         });
     }catch(error){
-        // console.log(error.message);
         console.log(error.message);
         response.status(500).send( {message:error.message} );
     }
     // res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-//Route for getting a specific sponsor using it's id
-router.get('/:id', async (request, response) =>{
+//Route for getting a specific book using it's id
+/* router.get('/:id', async (request, response) =>{
     try{
         const {id}  = request.params;
         if(!id){
@@ -35,9 +34,9 @@ router.get('/:id', async (request, response) =>{
         console.log(error.message);
         response.status(500).send( {message:error.message} );
     }
-});
+}); */
 
-//Route to post a sponsor in the database
+//Route to post a book in the database
 router.post('/', async(request, response) =>{
     try{
         if(!request.body.orgName || 
@@ -67,11 +66,11 @@ router.post('/', async(request, response) =>{
     }
 })
 
-//Route to update a sponsor
-router.put('/:id', async(request, response)=>{
+//Route to update a book
+/* router.put('/:id', async(request, response)=>{
     try{
-        if(!request.body.orgName || 
-            !request.body.orgType || 
+        if(!request.body.organisation_name || 
+            !request.body.organisation_type || 
             !request.body.industry
         ){
             return response.status(400).send({
@@ -89,17 +88,17 @@ router.put('/:id', async(request, response)=>{
         return response.status(200).send({
             message: 'Sponsor updated successfully.',
             id: `${id}`,
-            orgName: `${request.body.orgName}`
+            organisation_name: `${request.body.organisation_name}`
         });
     }
     catch (error){
         console.log(error.message);
         response.status(500).send( {message: error.message} );
     }
-})
+}) */
 
-//Rout for deleting a sponsor by id
-router.delete('/:id', async (request, response)=>{
+//Rout for deleting a book by id
+/* router.delete('/:id', async (request, response)=>{
     try{
 
         const { id } = request.params;
@@ -115,6 +114,6 @@ router.delete('/:id', async (request, response)=>{
         console.log(error.message);
         response.status(500).send( {message: error.message} );
     }
-})
+}) */
 
 export default router;

@@ -75,16 +75,12 @@ const CreateBooks = () =>{
 
 export default CreateBooks */
 
-//-----------------------------------------------------------------------------------------
-
-
 import React, {useState} from "react";
 import BackButton from "../components/BackButton";
 import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
-import Select from 'react-select';
 
 const CreateBook = () =>{
     const [orgName, setOrgName] = useState('');
@@ -106,31 +102,18 @@ const CreateBook = () =>{
         .post(`http://localhost:5555/sponsor`, data)
         .then(()=>{
             setLoading(false);
-            // console.log(data);
+            console.log(data);
             enqueueSnackbar('Sponsor addedd Succesfully.'), { variant: 'success' };
             navigate('/');
         })
         .catch((error)=>{
-            // console.log(data);
+            console.log(data);
             setLoading(false);
             // alert('An error happened. Please check console.');
             enqueueSnackbar('Error', { variant: 'error'});
             console.log(error);
         });
     }
-
-    const orgTypeOptions = [
-        { value: 'Product', label: 'Product'},
-        { value: 'Service', label: 'Service'},
-    ]
-
-    const industryOptions = [
-        { value: 'Technology', label: 'Technology'},
-        { value: 'Cosmetic', label: 'Cosmetic'},
-        { value: 'Food', label: 'Food'},
-        { value: 'Automobile', label: 'Automobile'},
-        { value: 'Beverages', label: 'Beverages'},
-    ]
 
     return(
         <div className="p-4">
@@ -144,24 +127,35 @@ const CreateBook = () =>{
                     type="text"
                     value={orgName}
                     onChange={(e)=> setOrgName(e.target.value)}
-                    className="border-2 px-4 py-2 w-full" 
+                    className="border-2 border-gray-500 px-4 py-2 w-full" 
                     />
                 </div>
                 <div className="my-4">
                     <label className="text-x1 mr-4 text-gray-500">Organisation Type</label>
-                    <Select
-                    onChange={(selectedOption) => setOrgType(selectedOption.value)}
-                    options={orgTypeOptions}
-                    defaultValue={{label: "Choose org. type", value: "placeholder"}}>
-                    </Select>
+                    <select
+                        className="border rounded w-full py-2 px-3"
+                        onChange={(e) => setOrgType(e.target.value)}
+                        value={orgType}
+                        required
+                    >
+                        <option value="Product">Product</option>
+                        <option value="Service">Service</option>
+                    </select>
                 </div>
                 <div className="my-4">
                     <label className="text-x1 mr-4 text-gray-500">Industry</label>
-                    <Select
-                    onChange={(selectedOption) => setIndustry(selectedOption.value)}
-                    options={industryOptions}
-                    defaultValue={{label: "Choose an industry", value: "placeholder"}}>
-                    </Select>
+                    <select
+                        className="border rounded w-full py-2 px-3"
+                        onChange={(e) => setIndustry(e.target.value)}
+                        value={industry}
+                        required
+                    >
+                        <option value="Technology">Technology</option>
+                        <option value="Automobile">Automobile</option>
+                        <option value="Cosmetic">Cosmetic</option>
+                        <option value="Food">Food</option>
+                        <option value="Beverage">Beverage</option>
+                    </select>
                 </div>
                 <div className="my-4">
                     <label className="text-x1 mr-4 text-gray-500">Budget</label>
@@ -169,7 +163,7 @@ const CreateBook = () =>{
                     type="number"
                     value={budget}
                     onChange={(e)=> setBudget(e.target.value)}
-                    className="border-2 px-4 py-2 w-full" 
+                    className="border-2 border-gray-500 px-4 py-2 w-full" 
                     />
                 </div>
                 <button className="p-2 bg-sky-300 m-8" onClick={handleAddSponsor}>Add</button>

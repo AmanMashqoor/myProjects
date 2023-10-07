@@ -8,8 +8,9 @@ import { MdOutlineAddBox, MdOutlineDelete} from 'react-icons/md';
 import BooksTable from "../components/home/BooksTable";
 import BooksCard from "../components/home/BooksCard";
 import filterInfluencer from '../assets/img/filterInfluencerEdited.png';
-// import filterInfluencer from '../../img/';
-import MyHeading from '../components/MyHeading';
+import LeftPanel from "./LeftPanel";
+import ChatWindow from "./ChatWindow";
+import PromptWindow from "./PromptWindow";
 
 const Home = () =>{
     const [sponsors, setSponsors] = useState([]);
@@ -30,7 +31,15 @@ const Home = () =>{
     }, []);
     return(
     <>
-        <div className="p-4">
+    <div className="overflow-hidden w-full h-full relative flex z-0">
+    <LeftPanel/>
+        <div className="flex flex-wrap w-screen">
+        
+        <ChatWindow/>
+        <PromptWindow/>
+        </div>
+    </div>
+        {/* <div className="p-4">
             <div className="flex justify-center items-center gap-x-4">
                 <button
                 className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg"
@@ -51,13 +60,10 @@ const Home = () =>{
                 </Link>
             </div>
             {loading ? <Spinner /> : showType === 'table' ? (<BooksTable sponsors={sponsors}/>) : (<BooksCard sponsors={sponsors}/>)}
-        </div>
-
-        {/* <MyHeading name="Aman Mashqoor" age="24"/> */}
-        
-    <div>
+        </div> */}
+    {/* <div>
         <img style={{width: "auto"}} src={filterInfluencer}></img>
-    </div>
+    </div> */}
     </>
     )
 }

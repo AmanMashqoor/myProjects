@@ -6,12 +6,10 @@ import ShowBook from './pages/ShowBook';
 import DeleteBook from './pages/DeleteBook';
 // import EditBook from './pages/EditBook';
 import EditSponsor from "./pages/EditBook";
-import SignUp from "./pages/SignUp";
 
 const App = () =>{
   return(
     <Routes>
-      <Route path='/signup' element={<SignUp/>} />
       <Route path='/' element={<Home/>} />
       <Route path='/sponsor/add' element={<CreateBook/>} />
       <Route path='/sponsor/details/:id' element={<ShowBook/>} />

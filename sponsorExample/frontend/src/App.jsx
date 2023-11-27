@@ -1,22 +1,26 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Welcome from "./pages/Welcome";
+import SignUp from "./pages/SignUp";
+import LogIn from "./pages/LogIn";
 import Home from './pages/Home';
 import CreateBook from './pages/CreateBook';
 import ShowBook from './pages/ShowBook';
 import DeleteBook from './pages/DeleteBook';
 // import EditBook from './pages/EditBook';
 import EditSponsor from "./pages/EditBook";
-import SignUp from "./pages/SignUp";
 
 const App = () =>{
   return(
     <Routes>
+      <Route path='/' element={<Welcome/>} />
       <Route path='/signup' element={<SignUp/>} />
-      <Route path='/' element={<Home/>} />
-      <Route path='/sponsor/add' element={<CreateBook/>} />
-      <Route path='/sponsor/details/:id' element={<ShowBook/>} />
-      <Route path='/sponsor/edit/:id' element={<EditSponsor/>} />
-      <Route path='/sponsor/delete/:id' element={<DeleteBook/>} />
+      <Route path='/login' element={<LogIn/>} />
+      <Route path='/home' element={<Home/>} />
+      <Route path='/add' element={<CreateBook/>} />
+      <Route path='/details/:id' element={<ShowBook/>} />
+      <Route path='/edit/:id' element={<EditSponsor/>} />
+      <Route path='/delete/:id' element={<DeleteBook/>} />
     </Routes>
   )
 }

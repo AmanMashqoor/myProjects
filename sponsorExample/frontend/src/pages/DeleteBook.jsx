@@ -68,7 +68,7 @@ const DeleteSponsor = () =>{
         .then(()=>{
             setLoading(false);
             enqueueSnackbar('Sponsor deleted successfully.', {variant: 'success'});
-            navigate('/');
+            navigate('/home');
         })
         .catch((error)=>{
             setLoading(false);

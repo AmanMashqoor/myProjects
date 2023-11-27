@@ -1,11 +1,11 @@
 import express from "express";
+import cors from "cors";
 import {PORT, mongoDBURL} from "./config.js"; 
 import mongoose from "mongoose";
-// import {Book} from "./models/bookModel.js" 
-// import booksRoute from "./routes/booksRoute.js";
-import { Sponsor } from "./models/sponsorsModel.js";
+import auth from './routes/auth.js'
 import sponsorRoute from './routes/sponsorRoute.js';
-import cors from "cors";
+import errorHandler from './middleware/errorHandler.js';
+import undefinedRouteHandler from './middleware/undefinedRoute.js';
 
 const app = express();
 
@@ -42,5 +42,12 @@ app.get('/express', (request, response) => {
     return response.status(234).send('Welcome to MERN Stack Tutorial')
 })
 
-// app.use('/books', booksRoute);
-app.use('/sponsor', sponsorRoute);
+app.use('/auth', auth) //for signup and login authentication
+
+app.use('/sponsor', sponsorRoute); //for performing CRUD operations within the website 
+
+// Apply the middleware for handling undefined routes
+app.use(undefinedRouteHandler);
+
+// Apply the error handling middleware
+app.use(errorHandler);

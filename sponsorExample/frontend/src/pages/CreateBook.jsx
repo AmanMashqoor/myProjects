@@ -94,6 +94,7 @@ const CreateBook = () =>{
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { enqueueSnackbar } = useSnackbar();
+
     const handleAddSponsor = () =>{
         const data = {
             orgName,
@@ -107,8 +108,8 @@ const CreateBook = () =>{
         .then(()=>{
             setLoading(false);
             // console.log(data);
-            enqueueSnackbar('Sponsor addedd Succesfully.'), { variant: 'success' };
-            navigate('/');
+            enqueueSnackbar('Sponsor added Succesfully.'), { variant: 'success' };
+            navigate('/home');
         })
         .catch((error)=>{
             // console.log(data);

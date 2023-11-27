@@ -4,7 +4,7 @@ import { Sponsor } from '../models/sponsorsModel.js';
 const router = express.Router();
 
 //Route for getting all sponsors from database
-router.get('/', async (request, response) =>{
+router.get('/all', async (request, response) =>{
     try{
         const sponsors = await Sponsor.find({});
         // console.log(sponsors);
@@ -32,7 +32,7 @@ router.get('/:id', async (request, response) =>{
         const sponsor = await Sponsor.findById(id);
         return response.status(200).json(sponsor);
     }catch(error){
-        console.log("TENU");
+        // console.log("TENU"); //for debugging/checking error
         console.log(error.message);
         response.status(500).send( {message:error.message} );
     }
@@ -43,7 +43,9 @@ router.post('/', async(request, response) =>{
     try{
         if(!request.body.orgName || 
             !request.body.orgType || 
-            !request.body.industry
+            !request.body.industry ||
+            !request.body.budget
+
             ){
                 console.log("HERE ERR")
                 return response.status(400).send({
@@ -54,11 +56,11 @@ router.post('/', async(request, response) =>{
             orgName: request.body.orgName,
             orgType: request.body.orgType,
             industry: request.body.industry,
-            budget: request.body.budget || null,
+            budget: request.body.budget,
         };
 
         const sponsor = await Sponsor.create(newSponsor);
-        console.log(newSponsor);
+        // console.log(newSponsor);
 
         return response.status(201).send(sponsor);
     } 
@@ -73,10 +75,11 @@ router.put('/:id', async(request, response)=>{
     try{
         if(!request.body.orgName || 
             !request.body.orgType || 
-            !request.body.industry
+            !request.body.industry ||
+            !request.body.budget 
         ){
             return response.status(400).send({
-                message: 'Send all required fields: title, author, publishYear',
+                message: 'Send all required fields: title, author, publishYear, budget',
             });
         }
 
@@ -99,7 +102,7 @@ router.put('/:id', async(request, response)=>{
     }
 })
 
-//Rout for deleting a sponsor by id
+//Route for deleting a sponsor by id
 router.delete('/:id', async (request, response)=>{
     try{
 
